@@ -8,13 +8,14 @@
 
 <nav aria-label="breadcrumb bg alert-primary">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a routerLink="/dashboard" >Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/dashboard" >CRUD</a></li>
       <li class="breadcrumb-item"><a  >API</a></li>
+      <li class="breadcrumb-item"><a routerLink="/pagination" >Pagination</a></li>
     </ol>
   </nav>
 
-  <input type="text" class="float-right mr-3 border border-success" [(ngModel)]="search" (keyup)="getNames()" placeholder="Search for name...."><br>
-  <div class="border mt-3 ml-3 mr-3 pl-2 border-primary" *ngFor = "let data of getNames()">
+  <input type="text" class="float-right mr-3 border border-success" [(ngModel)]="search" (keyup)="getForName()" placeholder="Search for name...."><br>
+  <div class="border mt-3 ml-3 mr-3 pl-2 border-primary" *ngFor = "let data of getForName()">
       <p> <strong>Name:</strong> {{data.name}}</p>
       <p><strong> Username:</strong> {{data.username}}</p>
       <p> <strong>Email:</strong> {{data.email}}</p>

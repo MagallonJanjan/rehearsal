@@ -15,10 +15,11 @@ export class ApiuserslistComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
   }
-  
+
   api = "https://jsonplaceholder.typicode.com/users";
   users:any = [];
   search = "";
+
   
   getUsers(){
     this.http.get(this.api).subscribe(user => {
@@ -27,11 +28,11 @@ export class ApiuserslistComponent implements OnInit {
     })
   }
 
-  getNames(){
-    console.log('test');
-    return this.users.filter((user:any) => {
-        return user.name.toLowerCase().includes(this.search.toLowerCase())
+
+  getForName(){
+    return this.users.filter((name:any) => {
+      return name.name.toLowerCase().includes(this.search.toLocaleLowerCase());
     })
   }
-
+  
 }

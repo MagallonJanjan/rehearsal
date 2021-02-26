@@ -1,0 +1,8 @@
+.table2 {
+   overflow: auto;
+   max-height: 280px;
+}
+
+.table2::-webkit-scrollbar {
+    display: none;
+}

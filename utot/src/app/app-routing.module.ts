@@ -1,3 +1,4 @@
+import { PaginationComponent } from './pagination/pagination.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ApiuserslistComponent } from './apiuserslist/apiuserslist.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'login' , component : LoginComponent},
   {path : '' , component : LandingpageComponent},
   {path : 'dashboard', component :DashboardComponent},
-  {path : 'api', component : ApiuserslistComponent}
+  {path : 'api', component : ApiuserslistComponent},
+  {path : 'pagination', component : PaginationComponent}
 ];
 
 @NgModule({
@@ -27,5 +29,6 @@ export const Routers =
   LoginComponent,
   LandingpageComponent,
   DashboardComponent,
-  ApiuserslistComponent
+  ApiuserslistComponent,
+  PaginationComponent
 ]

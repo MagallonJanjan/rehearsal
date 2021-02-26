@@ -1,0 +1,40 @@
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    
+    
+    <nav aria-label="breadcrumb bg alert-primary">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/dashboard" >CRUD</a></li>
+          <li class="breadcrumb-item"><a routerLink="/api" >API</a></li>
+          <li class="breadcrumb-item"><a>Pagination</a></li>
+        </ol>
+      </nav>
+
+      
+
+      <div class="container mt-5 ">
+          <h4 class="text-center">
+            Basic Pagination Exercise 
+          </h4>
+          <div class="jumbotron">
+            <table class="table alert-success">
+              <thead>
+                <tr>
+                  <th scope="col">S.No.</th>
+                  <th scope="col">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of collection.data | paginate: config">
+                  <th scope="row">{{item.id}}</th>
+                  <td>{{item.value}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls id="basicPaginate" (pageChange)="pageChanged($event)"></pagination-controls>
+          </div>
+        </div>
