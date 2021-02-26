@@ -1,0 +1,23 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<nav aria-label="breadcrumb bg alert-primary">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/dashboard" >Home</a></li>
+      <li class="breadcrumb-item"><a  >API</a></li>
+    </ol>
+  </nav>
+
+  <input type="text" class="float-right mr-3 border border-success" [(ngModel)]="search" (keyup)="getNames()" placeholder="Search for name...."><br>
+  <div class="border mt-3 ml-3 mr-3 pl-2 border-primary" *ngFor = "let data of getNames()">
+      <p> <strong>Name:</strong> {{data.name}}</p>
+      <p><strong> Username:</strong> {{data.username}}</p>
+      <p> <strong>Email:</strong> {{data.email}}</p>
+  </div>
+
+

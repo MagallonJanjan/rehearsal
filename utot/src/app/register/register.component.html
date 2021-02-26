@@ -1,0 +1,74 @@
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+
+<div class="container">
+    <div  style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title text-center">Sign In</div>
+            </div>
+            <div style="padding-top:30px" class="panel-body">
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                <form [formGroup]="userProfile" (ngSubmit)="userProfile.valid && onRegister()" class="form-horizontal" role="form">
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  type="text" class="form-control" formControlName ="username"
+                        [ngClass]="{'is-invalid' : userProfile.get('username').touched && userProfile.get('username').invalid}" placeholder="Username">
+                    </div>
+                    <div *ngIf="userProfile.get('username').touched && userProfile.get('username').invalid" class="invalid-feedback">
+                        <p *ngIf="userProfile.get('username').errors.required">Username is required</p>
+                        <p *ngIf="userProfile.get('username').errors.minlength">Username must be atleast 4 characters</p>
+                      </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" formControlName ="email"
+                        [ngClass]="{'is-invalid' : userProfile.get('email').touched && userProfile.get('email').invalid}" placeholder="Email">
+                    </div>
+                    <div *ngIf="userProfile.get('email').touched && userProfile.get('email').invalid" class="invalid-feedback">
+                        <p *ngIf="userProfile.get('email').errors.required">Email is required</p>
+                        <p *ngIf="userProfile.get('email').errors.email">Email must be valid</p>
+                      </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input  type="password" class="form-control" formControlName ="password"
+                        [ngClass]="{'is-invalid' : userProfile.get('password').touched && userProfile.get('password').invalid}" placeholder="Password">
+                    </div>
+                    <div *ngIf="userProfile.get('password').touched && userProfile.get('password').invalid" class="invalid-feedback">
+                        <p *ngIf="userProfile.get('password').errors.required">Password is required</p>
+                        <p *ngIf="userProfile.get('password').errors.minlength">Password must be at least 8 characters</p>
+                      </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                        [ngClass]="{'is-invalid' : userProfile.get('confirmPassword').touched && userProfile.get('confirmPassword').invalid}"  placeholder="Confirm password">
+                    </div>
+                    <div *ngIf="userProfile.get('confirmPassword').touched && userProfile.get('confirmPassword').invalid" class="invalid-feedback">
+                        <p *ngIf="userProfile.get('confirmPassword').errors.required">Password is required</p>
+                        <p *ngIf="userProfile.get('confirmPassword').errors.mustMatch">Password doesn't match</p>
+                      </div>
+                    <div style="margin-top:10px" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <button type="submit" class="btn btn-success" *ngIf="!submitButton" [disabled]="userProfile.invalid">Register </button>
+                            <button type="submit" class="btn btn-success" *ngIf="submitButton"> Please wait... </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                Already have an account?
+                                <a href="#" routerLink="/login">
+                                    Login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

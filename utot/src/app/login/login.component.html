@@ -1,0 +1,56 @@
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+
+<div class="container">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title text-center">Login</div>
+            </div>
+            <div style="padding-top:30px" class="panel-body">
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                <form class="form-horizontal" [formGroup]="loginUser" (ngSubmit)="loginUser.valid && onLogin()" >
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="email" class="form-control" formControlName="email"
+                             [ngClass]="{'is-invalid' : loginUser.get('email').touched && loginUser.get('email').invalid}"   placeholder="Email">
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginUser.get('email').touched && loginUser.get('email').invalid">
+                        <p *ngIf="loginUser.get('email').errors.required">Email Address is required</p>
+                        <p *ngIf="loginUser.get('email').errors.email">Email must be valid</p>
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" formControlName="password"
+                           [ngClass]="{'is-invalid' : loginUser.get('password').touched && loginUser.get('password').invalid}" placeholder="Password">
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginUser.get('password').touched && loginUser.get('password').invalid">
+                        <p *ngIf="loginUser.get('password').errors.required">Password is required</p>
+                        <p *ngIf="loginUser.get('password').errors.minlength">Password must be atleast 8 characters</p>
+                    </div>
+                    <div style="margin-top:10px" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <button type="submit" class="btn btn-success" *ngIf="loginSpinner" [disabled]="!loginUser.valid">Login </button>
+                            <button type="submit" class="btn btn-success"  *ngIf="!loginSpinner">Logging in... </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                Don't have an account?
+                                <a href="#" routerLink="/register">
+                                    Sign up here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
