@@ -8,11 +8,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     Routers
-  
   ],
   imports: [
     BrowserModule,

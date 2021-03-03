@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UpdatetaskComponent } from './updatetask/updatetask.component';
 
 const routes: Routes = [
   {path : 'register' , component :RegisterComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path : '' , component : LandingpageComponent},
   {path : 'dashboard', component :DashboardComponent},
   {path : 'api', component : ApiuserslistComponent},
-  {path : 'pagination', component : PaginationComponent}
+  {path : 'pagination', component : PaginationComponent},
+  {path : 'dashboard/updatetask', component : UpdatetaskComponent}
 ];
 
 @NgModule({
@@ -30,5 +32,6 @@ export const Routers =
   LandingpageComponent,
   DashboardComponent,
   ApiuserslistComponent,
-  PaginationComponent
+  PaginationComponent,
+  UpdatetaskComponent
 ]

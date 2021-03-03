@@ -24,14 +24,23 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  myTask:any[] = [] ;
+  myTask:any[] = [{
+    task : "Wash clothes",
+    description : "Wash my super clean clothes",
+    date : "2021-03-26"
+  }] ;
 
   onSubmit(){
-    this.myTask.push(this.task);
+    console.log(this.task.value)
+    this.myTask.push(this.task.value);
     console.log(this.myTask);
     this.task.reset();
    
-    
   }
+
+  removeTask(item : any){
+    this.myTask.splice(this.myTask.indexOf(item),1)
+  }
+
 
 }
